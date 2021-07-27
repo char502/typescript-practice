@@ -8,24 +8,6 @@ const FindUser: React.FC = () => {
   const handleFind = () => {
     console.log(user)
 
-    // const cCase = user.charAt(0).toUpperCase().concat(user.slice(1))
-    // const cCase = user.charAt(0).toUpperCase()
-    
-    // .concat(user.slice(1))
-
-    // console.log(cCase);
-
-    // const other = user.slice(1)
-
-    // const final = cCase.concat(other)
-
-    // console.log(cCase)
-
-    // console.log(other)
-
-    // console.log(final);
-
-    
 
     const person = userArr.find((p) => p.Name.toLowerCase() === user.toLowerCase() )
 
