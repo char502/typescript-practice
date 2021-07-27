@@ -15,6 +15,8 @@ const GuestList: React.FC = () => {
 
     // take everything out of guests, add it to a new array, then add on name to the end
     // never[] means Typescript has no idea what kind of value is going to be present inside that array
+    // setGuests([...guests, name]);
+
     setGuests([...guests, name]);
 
     setName('');
