@@ -14,3 +14,33 @@ Two big checks by Typescript:
 
 2. Are we using the correctly named + typed props in Child?
 
+// ==============================================================
+Define ts props in a component
+
+// Child
+
+interface ChildProps {
+  color: string;
+}
+
+export const Child = ({ color }: ChildProps) => {
+  return (
+    <div>
+      Hi there! {color}
+    </div>
+  )
+};
+
+// Parent
+
+import { Child } from './Child';
+
+const Parent = () => {
+  return <Child color='red' />;
+};
+
+export default Parent;
+
+// The problem with this is that TypeScript does not know that this is a react component so 
+
+Child.displayName for example (which is available to React components) will not work
