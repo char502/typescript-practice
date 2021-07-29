@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 const GuestList: React.FC = () => {
-  const [name, setName] = useState('');
+  const [name, setName] = useState<string>('');
   // without type TS will assume this array will be forever empty
   // the type entered now is string[] which means an array of strings
   const [guests, setGuests] = useState<string[]>([]);
