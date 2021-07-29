@@ -1,3 +1,5 @@
+npx create-react-app <appname> --template typescript
+
 
 No JSX - use '.ts'
 

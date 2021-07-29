@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 
 export interface UserProps {
   id: number;
@@ -6,10 +6,21 @@ export interface UserProps {
   age: number;
 }
 
-export const UserSearch: React.FC = () => {
+export const UserSearchRefs: React.FC = () => {
+  // accounting for the fact that the ref might not be used (react insists on this check)
+  let inputRef = useRef<HTMLInputElement | null>(null);
   const [name, setName] = useState<string>('');
-
   const [user, setUser] = useState<UserProps | undefined>();
+
+  useEffect(() => {
+    // making sure the ref is actually a defined value (not null) and pointing to a html element
+    // This is referred to a type guard, 
+    if (!inputRef.current) {
+      return;
+    }
+    // if the code then gets this far it knows the input element actually exists
+    inputRef.current.focus();
+  }, []);
 
   const handleFind = () => {
     const foundUser = users.find(
@@ -23,6 +34,7 @@ export const UserSearch: React.FC = () => {
     <div>
       <div>
         <input
+          ref={inputRef}
           type='text'
           value={name}
           onChange={(e) => setName(e.target.value)}
@@ -46,7 +58,7 @@ export const UserSearch: React.FC = () => {
   );
 };
 
-export default UserSearch;
+export default UserSearchRefs;
 
 export const users = [
   {

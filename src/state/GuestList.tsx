@@ -1,9 +1,5 @@
 import React, { useState } from 'react';
 
-// interface GuestListProps {
-//   event: Event | null;
-// }
-
 const GuestList: React.FC = () => {
   const [name, setName] = useState('');
   // without type TS will assume this array will be forever empty
@@ -14,8 +10,10 @@ const GuestList: React.FC = () => {
     
 
     // take everything out of guests, add it to a new array, then add on name to the end
-    // never[] means Typescript has no idea what kind of value is going to be present inside that array
     // setGuests([...guests, name]);
+
+    // never[] means Typescript has no idea what kind of value is going to be present inside that array
+    
 
     setGuests([...guests, name]);
 
